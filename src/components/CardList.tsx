@@ -8,12 +8,13 @@ import { EMApis } from "../constants";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 export default function ResponsiveGrid() {
-  const [countryList, setCountryList] = useState([]);
-
+  const countryList = localStorage.getItem("countryList")
+    ? JSON.parse(localStorage.getItem("countryList") || "{}")
+    : [];
   const getCountryList = useCallback(async () => {
     const res = await (await fetch(EMApis.ALL)).json();
     console.log(res);
-    setCountryList(res);
+    localStorage.setItem("countryList", JSON.stringify(res));
     return res;
   }, []);
 
@@ -21,10 +22,10 @@ export default function ResponsiveGrid() {
     if (!countryList?.length) {
       getCountryList();
     }
-  }, []);
+  }, [countryList]);
 
   return (
-    <Box sx={{ flexGrow: 1, margin: '40px 36px' }}>
+    <Box sx={{ flexGrow: 1, margin: "40px 36px" }}>
       <Grid
         container
         spacing={{ xs: 1, md: 6 }}
