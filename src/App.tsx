@@ -4,6 +4,7 @@ import { createTheme } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 import Header from './components/Header';
 import MenuBar from "./components/MenuBar";
+import CardList from "./components/CardList";
 
 const theme = createTheme({
   typography: {
@@ -17,6 +18,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Header />
       <MenuBar />
+      <CardList />
     </ThemeProvider>
   );
 };
