@@ -1,15 +1,42 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+
+import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+import "./index.css";
+import { createTheme } from "@mui/material";
+import { ThemeProvider } from "@emotion/react";
+
+import Detail from "./Detail";
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+  },
+  { path: "/country", element: <Detail /> },
+]);
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
+
+const theme = createTheme({
+  typography: {
+    fontSize: 14,
+    fontFamily: 'Nunito Sans'
+  }
+})
+
 root.render(
   <React.StrictMode>
-    <App />
+        <ThemeProvider theme={theme}>
+
+    <RouterProvider router={router} />
+    </ThemeProvider>
   </React.StrictMode>
 );
 

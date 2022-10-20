@@ -28,8 +28,8 @@ export default function ResponsiveGrid() {
     <Box sx={{ flexGrow: 1, margin: "40px 36px" }}>
       <Grid
         container
-        spacing={{ xs: 1, md: 6 }}
-        columns={{ xs: 1, sm: 8, md: 12 }}
+        rowSpacing={{ xs: 1, md: 8 }}
+        columnSpacing={{ xs: 1, sm: 2, md: 4}}
       >
         {countryList?.map((country: any) => (
           <Grid item xs={1} sm={3} md={3} key={country.fifa}>
