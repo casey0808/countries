@@ -6,13 +6,11 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { IItem } from "../constants";
 
-
-
 export default function ActionAreaCard(country: IItem) {
   const url = `country/${country.name.common}`;
 
   return (
-    <Card sx={{ maxWidth: 340, width: 280 }}>
+    <Card sx={{ maxWidth: 340, width: 280, height: 350 }}>
       <CardActionArea href={url} target="_blank">
         <CardMedia
           component="img"
@@ -33,31 +31,16 @@ export default function ActionAreaCard(country: IItem) {
           >
             {country.name.official}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            <Typography
-              sx={{ color: "black", fontWeight: 500 }}
-              component="span"
-            >
-              Population:{" "}
-            </Typography>
+          <Typography variant="body2" color="text">
+            <b>Population: </b>
             {country.population}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            <Typography
-              sx={{ color: "black", fontWeight: 500 }}
-              component="span"
-            >
-              Region:{" "}
-            </Typography>
+          <Typography variant="body2" color="text">
+            <b>Region: </b>
             {country.region}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            <Typography
-              sx={{ color: "black", fontWeight: 500 }}
-              component="span"
-            >
-              Capital:{" "}
-            </Typography>
+          <Typography variant="body2" color="text">
+            <b>Capital: </b>
             {country.capital?.[0]}
           </Typography>
         </CardContent>

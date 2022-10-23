@@ -6,9 +6,9 @@ import reportWebVitals from "./reportWebVitals";
 
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import "./index.css";
-import { createTheme } from "@mui/material";
-import { ThemeProvider } from "@emotion/react";
+// import { createTheme } from "@mui/material";
 import Detail from "./Detail";
+// import ToggleColorMode from "./ThemeProvider";
 
 const router = createBrowserRouter([
   {
@@ -22,18 +22,16 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 
-const theme = createTheme({
-  typography: {
-    fontSize: 14,
-    fontFamily: "Nunito Sans",
-  }
-});
+// const theme = createTheme({
+//   typography: {
+//     fontSize: 14,
+//     fontFamily: "Nunito Sans",
+//   }
+// });
 
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
       <RouterProvider router={router} />
-    </ThemeProvider>
   </React.StrictMode>
 );
 

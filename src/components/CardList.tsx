@@ -71,51 +71,54 @@ export default function ResponsiveGrid() {
 
   return (
     <>
-      <Toolbar
-        sx={{
-          marginTop: 6,
-          justifyContent: "space-between",
-          marginLeft: 4,
-          marginRight: 9,
-        }}
-      >
-        <TextField
-          id="outlined-search"
-          placeholder="Search for a country..."
-          type="search"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon />
-              </InputAdornment>
-            ),
+      {/* <AppBar> */}
+        <Toolbar
+          sx={{
+            marginTop: 6,
+            justifyContent: "space-between",
+            marginLeft: 4,
+            marginRight: 9,
           }}
-          sx={{ width: 280 }}
-          onChange={onSearchChange}
-        />
-        <Box sx={{ minWidth: 200 }}>
-          <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">
-              Filter by Region
-            </InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={region}
-              label="region"
-              onChange={handleChange}
-            >
-              {regions.map((region) => {
-                return (
-                  <MenuItem value={region} key={region}>
-                    {region}
-                  </MenuItem>
-                );
-              })}
-            </Select>
-          </FormControl>
-        </Box>
-      </Toolbar>
+          color="default"
+        >
+          <TextField
+            id="outlined-search"
+            placeholder="Search for a country..."
+            type="search"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+            }}
+            sx={{ width: 280 }}
+            onChange={onSearchChange}
+          />
+          <Box sx={{ minWidth: 200 }}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">
+                Filter by Region
+              </InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={region}
+                label="region"
+                onChange={handleChange}
+              >
+                {regions.map((region) => {
+                  return (
+                    <MenuItem value={region} key={region}>
+                      {region}
+                    </MenuItem>
+                  );
+                })}
+              </Select>
+            </FormControl>
+          </Box>
+        </Toolbar>
+      {/* </AppBar> */}
       <Box sx={{ flexGrow: 1, marginLeft: 8, marginTop: 8 }}>
         <Grid
           container
