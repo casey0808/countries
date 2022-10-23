@@ -9,6 +9,7 @@ import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { useEffect } from "react";
 
 const BasicSelect = () => {
   const [region, setRegion] = React.useState("");
@@ -18,6 +19,10 @@ const BasicSelect = () => {
   };
 
   const regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
+
+  useEffect(() => {
+
+  }, [region])
 
   return (
     <Box sx={{ minWidth: 200 }}>
