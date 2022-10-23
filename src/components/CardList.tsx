@@ -13,6 +13,8 @@ import {
   Toolbar,
   TextField,
   InputAdornment,
+  CircularProgress,
+  Container,
 } from "@mui/material";
 
 import SearchIcon from "@mui/icons-material/Search";
@@ -71,69 +73,94 @@ export default function ResponsiveGrid() {
 
   return (
     <>
-      {/* <AppBar> */}
-        <Toolbar
-          sx={{
-            marginTop: 6,
-            justifyContent: "space-between",
-            marginLeft: 4,
-            marginRight: 9,
+      <Toolbar
+        sx={{
+          marginTop: 6,
+          justifyContent: "space-between",
+          marginLeft: 4,
+          marginRight: 9,
+        }}
+        color="default"
+      >
+        <TextField
+          id="outlined-search"
+          placeholder="Search for a country..."
+          type="search"
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon />
+              </InputAdornment>
+            ),
           }}
-          color="default"
+          sx={{ width: 280 }}
+          onChange={onSearchChange}
+        />
+        <Box sx={{ minWidth: 200 }}>
+          <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">
+              Filter by Region
+            </InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={region}
+              label="region"
+              onChange={handleChange}
+            >
+              {regions.map((region) => {
+                return (
+                  <MenuItem value={region} key={region}>
+                    {region}
+                  </MenuItem>
+                );
+              })}
+            </Select>
+          </FormControl>
+        </Box>
+      </Toolbar>
+      {!countryList?.length ? (
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "60vh",
+            width: "100vw",
+          }}
         >
-          <TextField
-            id="outlined-search"
-            placeholder="Search for a country..."
-            type="search"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon />
-                </InputAdornment>
-              ),
-            }}
-            sx={{ width: 280 }}
-            onChange={onSearchChange}
-          />
-          <Box sx={{ minWidth: 200 }}>
-            <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">
-                Filter by Region
-              </InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={region}
-                label="region"
-                onChange={handleChange}
-              >
-                {regions.map((region) => {
-                  return (
-                    <MenuItem value={region} key={region}>
-                      {region}
-                    </MenuItem>
-                  );
-                })}
-              </Select>
-            </FormControl>
-          </Box>
-        </Toolbar>
-      {/* </AppBar> */}
-      <Box sx={{ flexGrow: 1, marginLeft: 8, marginTop: 8 }}>
-        <Grid
-          container
-          rowSpacing={{ xs: 1, md: 8 }}
-          columnSpacing={{ xs: 1, sm: 2, md: 4 }}
+          <CircularProgress />
+        </Box>
+      ) : customList?.length ? (
+        <Box sx={{ flexGrow: 1, marginLeft: 8, marginTop: 8 }}>
+          <Grid
+            container
+            rowSpacing={{ xs: 1, md: 8 }}
+            columnSpacing={{ xs: 1, sm: 2, md: 4 }}
+          >
+            {customList?.map((country: IItem) => {
+              return (
+                <Grid item xs={1} sm={3} md={3} key={country.cioc}>
+                  <ActionAreaCard {...country} />
+                </Grid>
+              );
+            })}
+          </Grid>
+        </Box>
+      ) : (
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "60vh",
+            width: "100vw",
+            fontSize: '46px'
+          }}
         >
-          {customList?.map((country: IItem) => {
-            return (
-              <Grid item xs={1} sm={3} md={3} key={country.cioc}>
-                <ActionAreaCard {...country} />
-              </Grid>
-            );
-          })}
-        </Grid>
-      </Box>
+          Not Found ;_;
+        </Box>
+      )}
     </>
   );
 }
