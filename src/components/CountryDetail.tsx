@@ -47,7 +47,7 @@ const Detail = () => {
   }, [detail]);
 
   return (
-    <Box sx={{ flexGrow: 1, flexWrap: 'wrap' }}>
+    <Box sx={{ flexGrow: 1, flexWrap: "wrap" }}>
       <Toolbar>
         <Button
           variant="outlined"
@@ -123,7 +123,7 @@ const Detail = () => {
                 </Grid>
               </Grid>
             </CardContent>
-            <CardActions sx={{ marginLeft: 1, flexWrap: 'wrap', rowGap: 2}}>
+            <CardActions sx={{ marginLeft: 1, flexWrap: "wrap", rowGap: 2 }}>
               <b>Border Countries: </b>
               {detail?.borders && detail?.borders?.length ? (
                 detail?.borders?.map((border: string) => {
@@ -142,11 +142,11 @@ const Detail = () => {
                       sx={{
                         color: "black",
                         borderColor: "transparent",
-                        width: 'max-content',
+                        width: "max-content",
                         boxShadow: "2px 2px 2px 2px hsl(0, 0%, 88%)",
                         marginLeft: "10px",
-                        textTransform: 'none',
-                        fontSize: '14px'
+                        textTransform: "none",
+                        fontSize: "14px",
                       }}
                       to={url}
                       component={Link}

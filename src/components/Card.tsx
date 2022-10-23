@@ -7,7 +7,7 @@ import { CardActionArea } from "@mui/material";
 import { IItem } from "../constants";
 
 export default function ActionAreaCard(country: IItem) {
-  const url = `country/${country.name.common}`;
+  const url = `/countries/${country.name.common}`;
 
   return (
     <Card sx={{ maxWidth: 340, width: 280, height: 350 }}>

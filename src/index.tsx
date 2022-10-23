@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./index.css";
 // import { createTheme } from "@mui/material";
 import Detail from "./Detail";
@@ -12,10 +12,10 @@ import Detail from "./Detail";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/countries",
     element: <App />,
   },
-  { path: "/country/:id", element: <Detail /> },
+  { path: "/countries/:id", element: <Detail />},
 ]);
 
 const root = ReactDOM.createRoot(
@@ -31,7 +31,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-      <RouterProvider router={router} />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
