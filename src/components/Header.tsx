@@ -10,14 +10,19 @@ const Header = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="default">
         <Toolbar>
-          <Typography component="div" sx={{ flexGrow: 1, fontWeight: 800, fontSize: 24 }}>
+          <Typography
+            component="div"
+            sx={{ flexGrow: 1, fontWeight: 800, fontSize: 24, marginLeft: 6 }}
+          >
             Where in the world?
           </Typography>
-          <Button color="inherit">Dark Mode</Button>
+          <Button color="inherit" sx={{ marginRight: 8 }}>
+            Dark Mode
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>
   );
 };
 
-export default Header
+export default Header;

@@ -91,9 +91,11 @@ const MenuBar = () => {
   return (
     <Toolbar
       sx={{
-        display: "flex",
-        marginTop: "30px",
+        // display: "flex",
+        marginTop: 6,
         justifyContent: "space-between",
+        marginLeft: 4,
+        marginRight: 9
       }}
     >
       <Search>
@@ -105,7 +107,7 @@ const MenuBar = () => {
           inputProps={{ "aria-label": "search" }}
         />
       </Search>
-      <BasicSelect />
+      <BasicSelect/>
     </Toolbar>
   );
 };

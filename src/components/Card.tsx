@@ -4,30 +4,23 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
+import { IItem } from "../constants";
 
-export interface IItem {
-  flags: {
-    png: string;
-  };
-  name: {
-    official: string;
-  };
-  population: number;
-  region: string;
-  capital: Array<string>;
-}
+
 
 export default function ActionAreaCard(country: IItem) {
+  const url = `country/${country.name.common}`;
+
   return (
     <Card sx={{ maxWidth: 340, width: 280 }}>
-      <CardActionArea>
+      <CardActionArea href={url} target="_blank">
         <CardMedia
           component="img"
           height="160"
           image={country.flags.png}
           alt="green iguana"
         />
-        <CardContent sx={{marginBottom: 2}}>
+        <CardContent sx={{ marginBottom: 2 }}>
           <Typography
             gutterBottom
             variant="h5"

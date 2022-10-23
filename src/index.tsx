@@ -8,16 +8,14 @@ import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import "./index.css";
 import { createTheme } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
-
 import Detail from "./Detail";
-
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
   },
-  { path: "/country", element: <Detail /> },
+  { path: "/country/:id", element: <Detail /> },
 ]);
 
 const root = ReactDOM.createRoot(
@@ -27,15 +25,14 @@ const root = ReactDOM.createRoot(
 const theme = createTheme({
   typography: {
     fontSize: 14,
-    fontFamily: 'Nunito Sans'
+    fontFamily: "Nunito Sans",
   }
-})
+});
 
 root.render(
   <React.StrictMode>
-        <ThemeProvider theme={theme}>
-
-    <RouterProvider router={router} />
+    <ThemeProvider theme={theme}>
+      <RouterProvider router={router} />
     </ThemeProvider>
   </React.StrictMode>
 );
