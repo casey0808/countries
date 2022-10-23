@@ -8,15 +8,19 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./index.css";
 // import { createTheme } from "@mui/material";
 import Detail from "./Detail";
+import { basename } from "path";
 // import ToggleColorMode from "./ThemeProvider";
 
-const router = createBrowserRouter([
-  {
-    path: "/countries",
-    element: <App />,
-  },
-  { path: "/countries/:id", element: <Detail />},
-]);
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <App />,
+    },
+    { path: "/:id", element: <Detail /> },
+  ],
+  { basename: "/countries" }
+);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
