@@ -10,12 +10,12 @@ export default function ActionAreaCard(country: IItem) {
   const url = `/countries/${country.name.common}`;
 
   return (
-    <Card sx={{ width: 300, height: 400 }}>
+    <Card sx={{ width: 300, height: 400, flexWrap: 'wrap' }}>
       <CardActionArea href={url} target="_blank">
         <CardMedia
           component="img"
           height="180"
-          width="300"
+          width="100%"
           image={country.flags.png}
         />
         <CardContent sx={{ marginBottom: 2 }}>

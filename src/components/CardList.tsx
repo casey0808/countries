@@ -148,16 +148,16 @@ export default function ResponsiveGrid() {
             display: "flex",
             flexWrap: "wrap",
             flexGrow: 1,
-            marginLeft: 8,
+            marginLeft: 7,
             marginTop: 8,
-            overflow: "hidden",
-            // whiteSpace: 'wrap'
+            overflow: "hidden"
           }}
         >
           <Grid
             container
-            rowSpacing={{ xs: 2, md: 6 }}
-            columnSpacing={{ xs: 1, sm: 3, md: 4 }}
+            rowSpacing={{ xs: 3, lg: 4 }}
+            columnSpacing={{ xs: 2, sm: 3, md: 5 }}
+            sx={{flexWrap: 'wrap'}}
           >
             {customList?.map((country: IItem) => {
               return (
