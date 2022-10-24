@@ -27,12 +27,20 @@ export default function ResponsiveGrid() {
   const [customList, setCustomList] = useState(countryList);
   const [region, setRegion] = useState("All");
   const [searchField, setSearchField] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const getCountryList = useCallback(async () => {
-    const res = await (await fetch(EMApis.ALL)).json();
-    console.log(res);
-    localStorage.setItem("countryList", JSON.stringify(res));
-    setCustomList(res);
+    setLoading(true);
+    try {
+      const res = await (await fetch(EMApis.ALL)).json();
+      console.log(res);
+      localStorage.setItem("countryList", JSON.stringify(res));
+      setCustomList(res);
+    } catch (e) {
+      console.log("error===>", e);
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
   useEffect(() => {
@@ -81,7 +89,7 @@ export default function ResponsiveGrid() {
           justifyContent: "space-between",
           marginLeft: 4,
           marginRight: 9,
-          rowGap: 2
+          rowGap: 2,
         }}
         color="default"
       >
@@ -122,7 +130,7 @@ export default function ResponsiveGrid() {
           </FormControl>
         </Box>
       </Toolbar>
-      {!countryList?.length ? (
+      {!countryList?.length && loading ? (
         <Box
           sx={{
             display: "flex",
@@ -142,7 +150,7 @@ export default function ResponsiveGrid() {
             flexGrow: 1,
             marginLeft: 8,
             marginTop: 8,
-            overflow: 'hidden'
+            overflow: "hidden",
             // whiteSpace: 'wrap'
           }}
         >

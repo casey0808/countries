@@ -69,6 +69,7 @@ const Detail = () => {
       <Grid
         container
         columnSpacing={1}
+        rowSpacing={1}
         alignItems="center"
         justifyContent="flex-start"
         sx={{ padding: 9 }}
@@ -77,13 +78,13 @@ const Detail = () => {
           <img
             src={detail?.flags?.png}
             loading="lazy"
-            width={560}
-            height={400}
+            width='95%'
+            height='100%'
           />
         </Grid>
         <Grid item xs={11} lg={6}>
           <Card
-            sx={{ width: 650, height: 400, border: "none", boxShadow: "none" }}
+            sx={{ width: '100%', height: '100%', border: "none", boxShadow: "none" }}
           >
             <CardContent sx={{ margin: "10px auto" }}>
               <Typography sx={{ fontSize: 30, fontWeight: 800 }} gutterBottom>
