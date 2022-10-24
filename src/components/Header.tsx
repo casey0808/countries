@@ -12,7 +12,7 @@ const Header = () => {
   // const colorMode = React.useContext(ColorModeContext);
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, width: '100vw'}}>
       <AppBar position="static" color="default">
         <Toolbar>
           <Typography

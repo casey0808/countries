@@ -75,10 +75,13 @@ export default function ResponsiveGrid() {
     <>
       <Toolbar
         sx={{
+          display: "flex",
+          flexWrap: "wrap",
           marginTop: 6,
           justifyContent: "space-between",
           marginLeft: 4,
           marginRight: 9,
+          rowGap: 2
         }}
         color="default"
       >
@@ -132,15 +135,25 @@ export default function ResponsiveGrid() {
           <CircularProgress />
         </Box>
       ) : customList?.length ? (
-        <Box sx={{ flexGrow: 1, marginLeft: 8, marginTop: 8 }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            flexGrow: 1,
+            marginLeft: 8,
+            marginTop: 8,
+            overflow: 'hidden'
+            // whiteSpace: 'wrap'
+          }}
+        >
           <Grid
             container
-            rowSpacing={{ xs: 1, md: 8 }}
-            columnSpacing={{ xs: 1, sm: 2, md: 4 }}
+            rowSpacing={{ xs: 2, md: 6 }}
+            columnSpacing={{ xs: 1, sm: 3, md: 4 }}
           >
             {customList?.map((country: IItem) => {
               return (
-                <Grid item xs={1} sm={3} md={3} key={country.cioc}>
+                <Grid item xs={11} sm={5} lg={3} key={country.cioc}>
                   <ActionAreaCard {...country} />
                 </Grid>
               );
@@ -155,7 +168,7 @@ export default function ResponsiveGrid() {
             alignItems: "center",
             height: "60vh",
             width: "100vw",
-            fontSize: '46px'
+            fontSize: "46px",
           }}
         >
           Not Found ;_;

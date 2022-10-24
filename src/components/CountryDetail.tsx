@@ -47,8 +47,8 @@ const Detail = () => {
   }, [detail]);
 
   return (
-    <Box sx={{ flexGrow: 1, flexWrap: "wrap" }}>
-      <Toolbar>
+    <Box sx={{ flexGrow: 1, flexWrap: "wrap", width: '100vw' }}>
+      <Toolbar sx={{flexGrow: 1}}>
         <Button
           variant="outlined"
           startIcon={<ArrowBack />}
@@ -73,7 +73,7 @@ const Detail = () => {
         justifyContent="flex-start"
         sx={{ padding: 9 }}
       >
-        <Grid item xs={11} sm={6} md={6}>
+        <Grid item xs={11} lg={6}>
           <img
             src={detail?.flags?.png}
             loading="lazy"
@@ -81,7 +81,7 @@ const Detail = () => {
             height={400}
           />
         </Grid>
-        <Grid item xs={11} sm={6} md={6}>
+        <Grid item xs={11} lg={6}>
           <Card
             sx={{ width: 650, height: 400, border: "none", boxShadow: "none" }}
           >

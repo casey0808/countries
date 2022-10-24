@@ -6,10 +6,10 @@ import CardList from "./components/CardList";
 const App = () => {
 
   return (
-    <>
+    <div className="App">
       <Header />
       <CardList />
-    </>
+    </div>
   );
 };
 

@@ -7,10 +7,10 @@ import CountryDetail from "./components/CountryDetail";
 
 const Detail = () => {
   return (
-    <>
+    <div className="App">
       <Header />
       <CountryDetail />
-    </>
+    </div>
   );
 };
 
