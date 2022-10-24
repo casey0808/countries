@@ -40,7 +40,7 @@ const Detail = () => {
   const nativeName = useMemo(() => {
     const nativeNameObj = detail?.name?.nativeName;
     const nameObj =
-      Object.values(nativeNameObj) && Object.values(nativeNameObj)?.length
+    nativeNameObj && Object.values(nativeNameObj) && Object.values(nativeNameObj)?.length
         ? Object.values(nativeNameObj)[0]
         : ({} as any);
     return nameObj?.official || "";
@@ -133,7 +133,7 @@ const Detail = () => {
                   );
 
                   const borderName = borderObj?.name?.common;
-                  const url = `/country/${borderName}`;
+                  const url = `/countries/${borderName}`;
 
                   return (
                     <Button

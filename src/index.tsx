@@ -14,12 +14,11 @@ import { basename } from "path";
 const router = createBrowserRouter(
   [
     {
-      path: "/",
+      path: "/countries",
       element: <App />,
     },
-    { path: "/:id", element: <Detail /> },
-  ],
-  { basename: "/countries" }
+    { path: "/countries/:id", element: <Detail /> },
+  ]
 );
 
 const root = ReactDOM.createRoot(
