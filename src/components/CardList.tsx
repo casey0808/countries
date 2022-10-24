@@ -137,7 +137,7 @@ export default function ResponsiveGrid() {
             justifyContent: "center",
             alignItems: "center",
             height: "60vh",
-            width: "100vw",
+            width: "90vw",
           }}
         >
           <CircularProgress />
@@ -148,20 +148,19 @@ export default function ResponsiveGrid() {
             display: "flex",
             flexWrap: "wrap",
             flexGrow: 1,
-            marginLeft: 7,
-            marginTop: 8,
-            overflow: "hidden"
+            paddingLeft: 7,
+            paddingTop: 8,
           }}
         >
           <Grid
             container
             rowSpacing={{ xs: 3, lg: 4 }}
-            columnSpacing={{ xs: 2, sm: 3, md: 5 }}
-            sx={{flexWrap: 'wrap'}}
+            columnSpacing={{ xs: 2, md: 4 }}
+            sx={{flexWrap: 'wrap', maxWidth: '95vw'}}
           >
             {customList?.map((country: IItem) => {
               return (
-                <Grid item xs={11} sm={5} lg={3} key={country.cioc}>
+                <Grid item xs={11} md={5} lg={3} key={country.cioc}>
                   <ActionAreaCard {...country} />
                 </Grid>
               );

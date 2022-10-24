@@ -17,7 +17,7 @@ const Header = () => {
         <Toolbar>
           <Typography
             component="div"
-            sx={{ flexGrow: 1, fontWeight: 800, fontSize: 24, marginLeft: 6 }}
+            sx={{ flexGrow: 1, fontWeight: 800, fontSize: 24, marginLeft: 5 }}
           >
             Where in the world?
           </Typography>
