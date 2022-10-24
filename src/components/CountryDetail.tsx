@@ -100,7 +100,7 @@ const Detail = () => {
                 </Grid>
 
                 <Grid item xs={6}>
-                  <b>Population: </b> {detail?.population}
+                  <b>Population: </b> {detail?.population?.toLocaleString('en-US')}
                 </Grid>
                 <Grid item xs={6}>
                   <b>Currencies: </b>{" "}

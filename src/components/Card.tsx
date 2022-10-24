@@ -10,13 +10,13 @@ export default function ActionAreaCard(country: IItem) {
   const url = `/countries/${country.name.common}`;
 
   return (
-    <Card sx={{ maxWidth: 340, width: 280, height: 350 }}>
+    <Card sx={{ width: 300, height: 400 }}>
       <CardActionArea href={url} target="_blank">
         <CardMedia
           component="img"
-          height="160"
+          height="180"
+          width="300"
           image={country.flags.png}
-          alt="green iguana"
         />
         <CardContent sx={{ marginBottom: 2 }}>
           <Typography
@@ -33,7 +33,7 @@ export default function ActionAreaCard(country: IItem) {
           </Typography>
           <Typography variant="body2" color="text">
             <b>Population: </b>
-            {country.population}
+            {country.population.toLocaleString('en-US')}
           </Typography>
           <Typography variant="body2" color="text">
             <b>Region: </b>
