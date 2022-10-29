@@ -6,35 +6,35 @@ import reportWebVitals from "./reportWebVitals";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./index.css";
-// import { createTheme } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material";
 import Detail from "./Detail";
-import { basename } from "path";
+// import { basename } from "path";
 // import ToggleColorMode from "./ThemeProvider";
 
-const router = createBrowserRouter(
-  [
-    {
-      path: "/countries",
-      element: <App />,
-    },
-    { path: "/countries/:id", element: <Detail /> },
-  ]
-);
+const router = createBrowserRouter([
+  {
+    path: "/countries",
+    element: <App />,
+  },
+  { path: "/countries/:id", element: <Detail /> },
+]);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 
-// const theme = createTheme({
-//   typography: {
-//     fontSize: 14,
-//     fontFamily: "Nunito Sans",
-//   }
-// });
+const theme = createTheme({
+  typography: {
+    fontSize: 14,
+    fontFamily: "Nunito Sans",
+  },
+});
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ThemeProvider theme={theme}>
+      <RouterProvider router={router} />
+    </ThemeProvider>
   </React.StrictMode>
 );
 
